@@ -1,4 +1,33 @@
 def numbers_in_words(num)
+  if num <= 9
+    ones_to_words(num)
+  elsif num <= 19
+    teens_to_words(num)
+  elsif num <= 99
+    doubles_to_words(num)
+  end
+
+end
+
+def doubles_to_words(num)
+  tens = {
+    2 => 'twenty',
+    3 => 'thirty',
+    4 => 'forty',
+    5 => 'fifty',
+    6 => 'sixty',
+    7 => 'seventy',
+    8 => 'eighty',
+    9 => 'ninety'
+  }
+
+  broken_num = num.to_s.split("")
+  ones = ones_to_words(broken_num[1].to_i)
+  tens[broken_num[0].to_i] + " " + ones
+
+end
+
+def teens_to_words(num)
   teens = {
     10 => "ten",
     11 => "eleven",
@@ -11,13 +40,9 @@ def numbers_in_words(num)
     18 => "eighteen",
     19 => "nineteen"
   }
-  if num <= 9
-    ones_to_words(num)
-  elsif teens.include?(num)
     teens[num]
-  end
-
 end
+
 
 def ones_to_words(num)
   word_list = {
