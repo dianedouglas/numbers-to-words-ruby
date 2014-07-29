@@ -9,6 +9,10 @@ describe("numbers_in_words") do
   it("takes a number over 9 but under 20 and translates it into word form") do
     numbers_in_words(11).should(eq("eleven"))
   end
+
+  it("takes a double digit number word and returns its numerical value") do
+    numbers_in_words(55).should(eq("fifty five"))
+  end
 end
 
 describe("ones_to_words") do
