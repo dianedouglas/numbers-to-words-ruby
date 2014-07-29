@@ -1,6 +1,6 @@
 def numbers_in_words(num)
 
-  # placeholders = [" thousand ", " million ", " billion ", " trillion "]
+  placeholders = [" thousand ", " million ", " billion ", " trillion "]
   number_of_left_digits = 0
   place_holder = 0
 
@@ -22,17 +22,18 @@ return_number = 0
       number_of_left_digits = num.to_s.length % 3
     end
 
-    if num.to_s.length >= 13
-      place_holder = " trillion "
-    elsif num.to_s.length >= 10
-      place_holder = " billion "
-    elsif num.to_s.length >= 7
-      place_holder = " million "
-    elsif num.to_s.length >= 4
-      place_holder = " thousand "
-    end
+    placeholder_index = num.to_s.length / 3 - 1
+    # if num.to_s.length >= 13
+    #   place_holder = " trillion "
+    # elsif num.to_s.length >= 10
+    #   place_holder = " billion "
+    # elsif num.to_s.length >= 7
+    #   place_holder = " million "
+    # elsif num.to_s.length >= 4
+    #   place_holder = " thousand "
+    # end
 
-    first = numbers_in_words(num.to_s.slice(0,(number_of_left_digits)).to_i) + place_holder
+    first = numbers_in_words(num.to_s.slice(0,(number_of_left_digits)).to_i) + placeholders[placeholder_index]
     num = num.to_s.slice(number_of_left_digits, (num.to_s.length - number_of_left_digits))
     the_rest = numbers_in_words(num.to_i)
     return_number = first + the_rest
@@ -92,4 +93,4 @@ def ones_to_words(num)
   word_list[num]
 end
 
-puts numbers_in_words(9121)
+puts numbers_in_words(90_000_009_121)
