@@ -21,6 +21,8 @@ describe("numbers_in_words") do
   it("takes a number greaters than 999 but less than 9999 and returns its numerical value") do
     numbers_in_words(1111).should(eq("one thousand one hundred eleven"))
   end
+
+
 end
 
 describe("ones_to_words") do
