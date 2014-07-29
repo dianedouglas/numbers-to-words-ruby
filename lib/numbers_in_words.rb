@@ -21,9 +21,12 @@ def doubles_to_words(num)
     9 => 'ninety'
   }
 
-  broken_num = num.to_s.split("")
-  ones = ones_to_words(broken_num[1].to_i)
-  tens[broken_num[0].to_i] + " " + ones
+  # broken_num = num.to_s.split("")
+  # ones = ones_to_words(broken_num[1].to_i)
+  # tens[broken_num[0].to_i] + " " + ones
+
+  ones = ones_to_words(num.to_s[1].to_i)
+  tens[num.to_s[0].to_i] + " " + ones
 
 end
 
