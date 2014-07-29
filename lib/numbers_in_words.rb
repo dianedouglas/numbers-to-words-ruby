@@ -28,6 +28,33 @@ return_number = 0
     first = numbers_in_words(num.to_s.slice(0,(number_of_left_digits)).to_i) + " thousand "
     the_rest = numbers_in_words(num.to_s[num.to_s.length-3..num.to_s.length].to_i)
     return_number = first + the_rest
+  elsif num <= 999_999_999
+    if num.to_s.length % 3 == 0
+      number_of_left_digits = 3
+    else
+      number_of_left_digits = num.to_s.length % 3
+    end
+    first = numbers_in_words(num.to_s.slice(0,(number_of_left_digits)).to_i) + " million "
+    the_rest = numbers_in_words(num.to_s[num.to_s.length-6..num.to_s.length].to_i)
+    return_number = first + the_rest
+  elsif num <= 999_999_999_999
+    if num.to_s.length % 3 == 0
+      number_of_left_digits = 3
+    else
+      number_of_left_digits = num.to_s.length % 3
+    end
+    first = numbers_in_words(num.to_s.slice(0,(number_of_left_digits)).to_i) + " billion "
+    the_rest = numbers_in_words(num.to_s[num.to_s.length-9..num.to_s.length].to_i)
+    return_number = first + the_rest
+  elsif num <= 999_999_999_999_999
+    if num.to_s.length % 3 == 0
+      number_of_left_digits = 3
+    else
+      number_of_left_digits = num.to_s.length % 3
+    end
+    first = numbers_in_words(num.to_s.slice(0,(number_of_left_digits)).to_i) + " trillion "
+    the_rest = numbers_in_words(num.to_s[num.to_s.length-12..num.to_s.length].to_i)
+    return_number = first + the_rest
   end
 
   # else
@@ -131,4 +158,4 @@ def ones_to_words(num)
   word_list[num]
 end
 
-puts numbers_in_words(999999)
+puts numbers_in_words(9000000000001)
