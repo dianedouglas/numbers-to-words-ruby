@@ -5,6 +5,14 @@ def numbers_in_words(num)
     teens_to_words(num)
   elsif num <= 99
     doubles_to_words(num)
+  elsif num <= 999
+    first = ones_to_words(num.to_s[0].to_i) + " hundred "
+    second = numbers_in_words(num.to_s[1,2].to_i)
+    first + second
+  elsif num <= 9999
+    first = ones_to_words(num.to_s[0].to_i) + " thousand "
+    the_rest = numbers_in_words(num.to_s[1..3].to_i)
+    first + the_rest
   end
 
 end
@@ -20,10 +28,6 @@ def doubles_to_words(num)
     8 => 'eighty',
     9 => 'ninety'
   }
-
-  # broken_num = num.to_s.split("")
-  # ones = ones_to_words(broken_num[1].to_i)
-  # tens[broken_num[0].to_i] + " " + ones
 
   ones = ones_to_words(num.to_s[1].to_i)
   tens[num.to_s[0].to_i] + " " + ones

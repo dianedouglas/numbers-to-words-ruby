@@ -10,8 +10,16 @@ describe("numbers_in_words") do
     numbers_in_words(11).should(eq("eleven"))
   end
 
-  it("takes a double digit number word and returns its numerical value") do
+  it("takes a double digit number and returns its numerical value") do
     numbers_in_words(55).should(eq("fifty five"))
+  end
+
+  it("takes a triple digit number and returns its numerical value") do
+    numbers_in_words(110).should(eq("one hundred ten"))
+  end
+
+  it("takes a number greaters than 999 but less than 9999 and returns its numerical value") do
+    numbers_in_words(1111).should(eq("one thousand one hundred eleven"))
   end
 end
 
@@ -32,3 +40,4 @@ describe("doubles_to_words") do
     doubles_to_words(55).should(eq("fifty five"))
   end
 end
+
